@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Anvuu 💗</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: #fff0f3; font-family: sans-serif; scroll-behavior: smooth; overflow-x: hidden; }
+        section { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; position: relative; }
+        h1 { font-size: 2rem; color: #ff4d6d; margin-bottom: 15px; }
+        p { font-size: 1.1rem; color: #555; max-width: 400px; }
+        .page-num { position: absolute; top: 20px; right: 20px; font-weight: bold; color: #ff8fa3; }
+        .box { font-size: 70px; margin-bottom: 20px; cursor: pointer; animation: shake 2s infinite; }
+        @keyframes shake { 0%, 100% { transform: rotate(0); } 25% { transform: rotate(-5deg); } 75% { transform: rotate(5deg); } }
+        .card { background: white; padding: 2rem; border-radius: 25px; box-shadow: 0 10px 30px rgba(255, 77, 109, 0.2); width: 90%; max-width: 350px; }
+        .btns { margin-top: 20px; display: flex; justify-content: center; gap: 15px; }
+        button { padding: 12px 25px; font-size: 1.1rem; border: none; border-radius: 50px; cursor: pointer; font-weight: bold; }
+        #yes { background: #ff4d6d; color: white; }
+        #no { background: #adb5bd; color: white; position: relative; }
+    </style>
+</head>
+<body>
+    <section><span class="page-num">1/15</span><h1>Yoo Anvuu!!!💗</h1><p>Scroll down for a surprise...</p></section>
+    <section style="background:#ffe5ec;"><span class="page-num">2/15</span><h1>To my favorite man...</h1><p>You mean everything to me.</p></section>
+    <section><span class="page-num">3/15</span><h1>My Safe Place 🫠</h1><p>I'm happiest when I'm with you.</p></section>
+    <section style="background:#ffcad4;"><span class="page-num">4/15</span><h1>Your Strength</h1><p>Thank you for always being there.</p></section>
+    <section><span class="page-num">5/15</span><h1>That Smile 💗</h1><p>It fixes everything.</p></section>
+    <section style="background:#f497ad;"><span class="page-num">6/15</span><h1 style="color:white">Best Friend</h1><p style="color:white">I'm so lucky you're mine.</p></section>
+    <section><span class="page-num">7/15</span><h1>The Small Things</h1><p>Every moment with you is a gift.</p></section>
+    <section style="background:#ffb3c1;"><span class="page-num">8/15</span><h1>I Choose You</h1><p>Always and forever.</p></section>
+    <section><span class="page-num">9/15</span><h1>No Limits</h1><p>I Love You So Much!!!💗</p></section>
+    <section style="background:#ff8fa3;"><span class="page-num">10/15</span><h1 style="color:white">Our Magic</h1><p style="color:white">What we have is rare.</p></section>
+    <section><span class="page-num">11/15</span><h1>The Support</h1><p>Thanks for believing in me.</p></section>
+    <section style="background:#ffc2d1;"><span class="page-num">12/15</span><h1>Our Future 💍</h1><p>I can't wait for what's next.</p></section>
+    <section><span class="page-num">13/15</span><h1>Simply You</h1><p>You are perfect to me.</p></section>
+    <section style="background:#ff4d6d;"><span class="page-num">14/15</span><h1 style="color:white">Ready?</h1><p style="color:white">One last scroll...</p></section>
+
+    <section id="final">
+        <span class="page-num">15/15</span>
+        <div class="card" id="ask">
+            <div class="box" id="ring">🎁</div>
+            <h1>Yoo Anvuu!!!💗</h1>
+            <p>Will you be mine forever?</p>
+            <div class="btns">
+                <button id="yes" onclick="done()">Yes!</button>
+                <button id="no" onmouseover="run()">No</button>
+            </div>
+        </div>
+        <div id="msg" style="display:none;">
+            <div style="font-size:80px;">💍✨</div>
+            <h1>I'M YOURS!</h1>
+            <p style="color:#ff4d6d; font-weight:bold;">Happy Propose Day!!🫠✨</p>
+            <p>I Love You So Much!!!💗</p>
+        </div>
+    </section>
+
+<script>
+    function run() {
+        const x = Math.random() * (window.innerWidth - 100);
+        const y = Math.random() * (window.innerHeight - 50);
+        const b = document.getElementById('no');
+        b.style.position = 'fixed';
+        b.style.left = x + 'px'; b.style.top = y + 'px';
+    }
+    function done() {
+        document.getElementById('ring').innerHTML = '💍';
+        setTimeout(() => {
+            document.getElementById('ask').style.display = 'none';
+            document.getElementById('msg').style.display = 'block';
+            for(let i=0; i<50; i++) { setTimeout(heart, i * 100); }
+        }, 500);
+    }
+    function heart() {
+        const h = document.createElement('div');
+        h.innerHTML = '💗'; h.style.position = 'fixed';
+        h.style.left = Math.random() * 100 + 'vw'; h.style.top = '-20px';
+        document.body.appendChild(h);
+        h.animate([{transform:'translateY(0)'},{transform:'translateY(110vh)'}], {duration:3000}).onfinish=()=>h.remove();
+    }
+</script>
+</body>
+  </html>
+  
