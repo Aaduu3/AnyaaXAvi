@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Anvu 🎀💗✨</title>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        :root {
+            --pink-light: #ffe4e1;
+            --pink-dark: #ff69b4;
+            --purple-btn: #9370DB; /* Color for the replay button */
+            --text-color: #4a4a4a;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: var(--pink-light);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: var(--text-color);
+            overflow: hidden;
+        }
+
+        .container {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 30px;
+            box-shadow: 0 15px 35px rgba(255, 105, 180, 0.2);
+            text-align: center;
+            width: 85%;
+            max-width: 450px;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .page {
+            display: none;
+            animation: fadeIn 0.6s ease-out;
+            width: 100%;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .floating-emojis {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        h1 { color: var(--pink-dark); font-size: 1.8rem; margin-bottom: 15px; }
+        p { font-size: 1.1rem; line-height: 1.5; margin: 10px 0; }
+
+        .btn-next {
+            background-color: var(--pink-dark);
+            color: white;
+            border: none;
+            padding: 15px 35px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            margin-top: 30px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 105, 182, 0.4);
+            min-width: 150px;
+        }
+
+        .btn-next:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 105, 182, 0.6);
+        }
+
+        /* Specific style for when the button becomes "Replay" */
+        .btn-next.replay {
+            background-color: var(--purple-btn);
+            box-shadow: 0 5px 15px rgba(147, 112, 219, 0.4);
+        }
+        
+        .btn-next.replay:hover {
+            box-shadow: 0 8px 20px rgba(147, 112, 219, 0.6);
+        }
+
+        .progress-dots {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #b0b0b0;
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="floating-emojis">🎀💗✨</div>
+
+    <div class="page active" id="p1">
+        <h1>Get Well Soon!</h1>
+        <p>Hey Anvu, I'm sending you so much love and strength right now. I hate that you're feeling unwell. 🤒</p>
+    </div>
+
+    <div class="page" id="p2">
+        <h1>Rest Up, Handsome 🛌</h1>
+        <p>Your only job right now is to rest and let your body heal. I'm cheering for you from here!</p>
+    </div>
+
+    <div class="page" id="p3">
+        <h1>Drink Your Water 💧</h1>
+        <p>Don't forget to stay hydrated! I'll be checking in on you later to make sure you did.</p>
+    </div>
+
+    <div class="page" id="p4">
+        <h1>Thinking of You...</h1>
+        <p>Every time my phone buzzes, I hope it's a message saying you're feeling a bit better. ✨</p>
+    </div>
+
+    <div class="page" id="p5">
+        <h1>Virtual Soup 🍲</h1>
+        <p>If I were there, I'd make you the warmest soup and tuck you into bed. Imagine this is that!</p>
+    </div>
+
+    <div class="page" id="p6">
+        <h1>You're My Favorite</h1>
+        <p>Sick or healthy, you are the best thing that ever happened to me. 🎀</p>
+    </div>
+
+    <div class="page" id="p7">
+        <h1>A Big Hug 🫂</h1>
+        <p>Sending a 10-second long virtual hug... 1... 2... 3... Can you feel it yet?</p>
+    </div>
+
+    <div class="page" id="p8">
+        <h1>Be Patient</h1>
+        <p>Healing takes time, so don't rush it. I'll be right here waiting for you. 💗</p>
+    </div>
+
+    <div class="page" id="p9">
+        <h1>My Happy Place</h1>
+        <p>Just thinking about your smile makes my whole day better. I can't wait to see it again.</p>
+    </div>
+
+    <div class="page" id="p10">
+        <h1>Stay Strong</h1>
+        <p>You're the strongest person I know. This little bug doesn't stand a chance against you!</p>
+    </div>
+
+    <div class="page" id="p11">
+        <h1>Distance Means Nothing</h1>
+        <p>Even though we are online, my heart is right there next to you. 🌎❤️</p>
+    </div>
+
+    <div class="page" id="p12">
+        <h1>Sleep Well 🌙</h1>
+        <p>I hope you have the most peaceful dreams tonight and wake up feeling refreshed.</p>
+    </div>
+
+    <div class="page" id="p13">
+        <h1>Almost Better?</h1>
+        <p>I'm manifesting a 100% recovery for you by tomorrow morning! ✨</p>
+    </div>
+
+    <div class="page" id="p14">
+        <h1>One Last Thing...</h1>
+        <p>Before you go back to resting, I have one very important secret to tell you on the next page.</p>
+    </div>
+
+    <div class="page" id="p15">
+        <h1>I LOVE YOU! 💗</h1>
+        <p>I love you more than all the stars in the sky. Get well soon, my Anvu. Forever yours. 🎀✨</p>
+    </div>
+
+    <button class="btn-next" id="nextBtn" onclick="nextPage()">Next 🎀</button>
+    <div class="progress-dots" id="dotTracker">Page 1 / 15</div>
+</div>
+
+<script>
+    let current = 1;
+    const total = 15;
+    const btn = document.getElementById('nextBtn');
+    const dotTracker = document.getElementById('dotTracker');
+
+    function nextPage() {
+        // If we are already on the last page, clicking the button reloads the page
+        if (current === total) {
+            location.reload(); 
+            return;
+        }
+
+        // 1. Hide current page
+        document.getElementById(`p${current}`).classList.remove('active');
+        
+        // 2. Increment page number
+        current++;
+        
+        // 3. Show next page
+        document.getElementById(`p${current}`).classList.add('active');
+        
+        // 4. Update the tracker text
+        dotTracker.innerText = `Page ${current} / ${total}`;
+        
+        // 5. Special check: Are we on the last page?
+        if (current === total) {
+            btn.innerText = "Replay from Start ↺"; // Change Text
+            btn.classList.add('replay'); // Change Style (Purple)
+            triggerConfetti(); // Blast Confetti
+        }
+    }
+
+    // Confetti Animation Function
+    function triggerConfetti() {
+        const duration = 3000;
+        const animationEnd = Date.now() + duration;
+        const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+
+        const random = (min, max) => Math.random() * (max - min) + min;
+
+        const interval = setInterval(function() {
+            const timeLeft = animationEnd - Date.now();
+
+            if (timeLeft <= 0) {
+                return clearInterval(interval);
+            }
+
+            const particleCount = 50 * (timeLeft / duration);
+            
+            // Blast from left
+            confetti(Object.assign({}, defaults, { particleCount, origin: { x: random(0.1, 0.3), y: Math.random() - 0.2 } }));
+            // Blast from right
+            confetti(Object.assign({}, defaults, { particleCount, origin: { x: random(0.7, 0.9), y: Math.random() - 0.2 } }));
+        }, 250);
+    }
+</script>
+
+</body>
+  </html>
+  
