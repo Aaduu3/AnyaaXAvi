@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Teddy Day Anvu! 🧸🤎</title>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        :root {
+            --bg-color: #fff0f5; /* Lavender Blush */
+            --accent-color: #d2691e; /* Chocolate color */
+            --btn-color: #ff69b4; /* Hot Pink */
+            --btn-hover: #ff1493;
+            --purple-btn: #9370DB;
+            --text-color: #4a4a4a;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: var(--bg-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: var(--text-color);
+            overflow: hidden;
+        }
+
+        .container {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 30px;
+            box-shadow: 0 15px 35px rgba(210, 105, 30, 0.15);
+            text-align: center;
+            width: 85%;
+            max-width: 450px;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .page {
+            display: none;
+            animation: fadeIn 0.6s ease-out;
+            width: 100%;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .floating-emojis {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        h1 { color: var(--accent-color); font-size: 1.8rem; margin-bottom: 15px; }
+        p { font-size: 1.1rem; line-height: 1.5; margin: 10px 0; }
+
+        /* Button Container */
+        .button-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            justify-content: center;
+            width: 100%;
+        }
+
+        button {
+            border: none;
+            padding: 15px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .btn-next {
+            background-color: var(--btn-color);
+            color: white;
+            flex: 2; /* Next button is wider */
+        }
+
+        .btn-next:hover {
+            background-color: var(--btn-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 20, 147, 0.4);
+        }
+
+        .btn-back {
+            background-color: #f0f0f0;
+            color: #888;
+            flex: 1;
+        }
+
+        .btn-back:hover {
+            background-color: #e0e0e0;
+            color: #555;
+        }
+
+        /* Hidden class for the back button on page 1 */
+        .hidden {
+            display: none !important;
+        }
+
+        /* Replay Style */
+        .btn-next.replay {
+            background-color: var(--purple-btn);
+            box-shadow: 0 5px 15px rgba(147, 112, 219, 0.4);
+        }
+
+        .progress-dots {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #b0b0b0;
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="floating-emojis">🧸🤎✨</div>
+
+    <div class="page active" id="p1">
+        <h1>Happy Teddy Day! 🧸</h1>
+        <p>Hey Anvu! Since today is Teddy Day, I made something special just for you.</p>
+    </div>
+
+    <div class="page" id="p2">
+        <h1>My Human Teddy</h1>
+        <p>You might not be made of fluff, but you are just as warm, comforting, and huggable as a real teddy bear.</p>
+    </div>
+
+    <div class="page" id="p3">
+        <h1>Virtual Cuddles 🫂</h1>
+        <p>Since I can't be there to squeeze you tight right now, I'm sending you the biggest virtual bear hug ever!</p>
+    </div>
+
+    <div class="page" id="p4">
+        <h1>You're So Cute</h1>
+        <p>Honestly, you are cuter than any stuffed animal in the store. Just looking at you makes me smile. 😊</p>
+    </div>
+
+    <div class="page" id="p5">
+        <h1>My Safe Place</h1>
+        <p>Talking to you feels like wrapping myself in a warm blanket. You make me feel so safe and loved.</p>
+    </div>
+
+    <div class="page" id="p6">
+        <h1>Missing Your Hugs</h1>
+        <p>I am counting down the days until I can hug you for real. It's going to be the best hug in history.</p>
+    </div>
+
+    <div class="page" id="p7">
+        <h1>Better Than a Toy</h1>
+        <p>A teddy bear can't text me back, make me laugh, or love me the way you do. You're the real prize. 🏆</p>
+    </div>
+
+    <div class="page" id="p8">
+        <h1>Softie at Heart?</h1>
+        <p>You may be strong and handsome on the outside, but I know you have the sweetest, softest heart inside. 💖</p>
+    </div>
+
+    <div class="page" id="p9">
+        <h1>Always With You</h1>
+        <p>Imagine I'm a little pocket teddy bear that you carry around everywhere. I'm always with you in spirit!</p>
+    </div>
+
+    <div class="page" id="p10">
+        <h1>My Comfort</h1>
+        <p>Whenever I have a bad day, just hearing your voice fixes everything. You are my stress reliever.</p>
+    </div>
+
+    <div class="page" id="p11">
+        <h1>Sending Warmth</h1>
+        <p>If you feel cold or lonely today, just remember how much I adore you. Let my love keep you warm! 🔥</p>
+    </div>
+
+    <div class="page" id="p12">
+        <h1>A Promise</h1>
+        <p>One day, we won't need virtual hugs anymore. I promise to make up for all the missed cuddles.</p>
+    </div>
+
+    <div class="page" id="p13">
+        <h1>Almost Done...</h1>
+        <p>I have one last very important message for my favorite guy...</p>
+    </div>
+
+    <div class="page" id="p14">
+        <h1>Are You Ready?</h1>
+        <p>Take a deep breath... here it comes! 🧸✨</p>
+    </div>
+
+    <div class="page" id="p15">
+        <h1>I LOVE YOU! ❤️</h1>
+        <p>You are my forever Teddy. Happy Teddy Day, Anvu! I love you so much! 🧸🎀🤎</p>
+    </div>
+
+    <div class="button-group">
+        <button class="btn-back hidden" id="backBtn" onclick="prevPage()">Back</button>
+        <button class="btn-next" id="nextBtn" onclick="nextPage()">Next 🧸</button>
+    </div>
+
+    <div class="progress-dots" id="dotTracker">Page 1 / 15</div>
+</div>
+
+<script>
+    let current = 1;
+    const total = 15;
+    const nextBtn = document.getElementById('nextBtn');
+    const backBtn = document.getElementById('backBtn');
+    const dotTracker = document.getElementById('dotTracker');
+
+    function updateUI() {
+        // 1. Show/Hide Pages
+        for(let i = 1; i <= total; i++) {
+            const page = document.getElementById(`p${i}`);
+            if (i === current) {
+                page.classList.add('active');
+            } else {
+                page.classList.remove('active');
+            }
+        }
+
+        // 2. Update Dot Tracker
+        dotTracker.innerText = `Page ${current} / ${total}`;
+
+        // 3. Handle Back Button Visibility
+        if (current === 1) {
+            backBtn.classList.add('hidden');
+        } else {
+            backBtn.classList.remove('hidden');
+        }
+
+        // 4. Handle Next Button Text/Style
+        if (current === total) {
+            nextBtn.innerText = "Replay Card ↺";
+            nextBtn.classList.add('replay');
+            triggerConfetti();
+        } else {
+            nextBtn.innerText = "Next 🧸";
+            nextBtn.classList.remove('replay');
+        }
+    }
+
+    function nextPage() {
+        if (current === total) {
+            location.reload(); // Reloads page to restart
+            return;
+        }
+        current++;
+        updateUI();
+    }
+
+    function prevPage() {
+        if (current > 1) {
+            current--;
+            updateUI();
+        }
+    }
+
+    function triggerConfetti() {
+        const duration = 3000;
+        const animationEnd = Date.now() + duration;
+        const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+        const random = (min, max) => Math.random() * (max - min) + min;
+
+        const interval = setInterval(function() {
+            const timeLeft = animationEnd - Date.now();
+            if (timeLeft <= 0) return clearInterval(interval);
+            const particleCount = 50 * (timeLeft / duration);
+            confetti(Object.assign({}, defaults, { particleCount, origin: { x: random(0.1, 0.3), y: Math.random() - 0.2 } }));
+            confetti(Object.assign({}, defaults, { particleCount, origin: { x: random(0.7, 0.9), y: Math.random() - 0.2 } }));
+        }, 250);
+    }
+</script>
+
+</body>
+  </html>
+  
